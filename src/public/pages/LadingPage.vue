@@ -14,10 +14,10 @@ export default {
       <section class="header-parent">
           <header class="header">
                   <div class="logo-build-sphere-1-parent">
-                    <img class="logo-build-sphere-1" alt="" src="../assets/logo-build-sphere-1.svg">
+                    <img class="logo-build-sphere-1" alt="" src="../../assets/logo-build-sphere-1.svg">
 
                     <b class="chromacomics">ChromaComics</b>
-                    <img class="image-1-icon" loading="lazy" alt="" src="../assets/image-1@2x.png">
+                    <img class="image-1-icon" loading="lazy" alt="" src="../../assets/image-1@2x.png">
                   </div>
                   <div class="testimonios-container">
 
@@ -52,7 +52,7 @@ export default {
                               <img
                                 class="component-1-child"
                                 alt=""
-                                src="../assets/rectangle-3.svg"
+                                src="../../assets/rectangle-3.svg"
                               />
 
                               <div class="saber-mas">Learn more</div>
@@ -65,7 +65,7 @@ export default {
                       class="image-2-icon"
                       loading="lazy"
                       alt=""
-                      src="../assets/image-2@2x.png"
+                      src="../../assets/image-2@2x.png"
                     />
                   </div>
                 </div>
@@ -86,7 +86,7 @@ export default {
                         class="image-4-icon"
                         loading="lazy"
                         alt=""
-                        src="../assets/image-4@2x.png"
+                        src="../../assets/image-4@2x.png"
                       />
                     </div>
                   </div>
@@ -101,7 +101,7 @@ export default {
                         class="frame-child"
                         loading="lazy"
                         alt=""
-                        src="../assets/group-19@2x.png"
+                        src="../../assets/group-19@2x.png"
                       />
 
                       <div class="rectangle-parent">
@@ -199,7 +199,7 @@ export default {
                       class="image-3-icon"
                       loading="lazy"
                       alt=""
-                      src="../assets/image-3@2x.png"
+                      src="../../assets/image-3@2x.png"
                     />
                   </div>
                   <div class="email-field">
@@ -346,7 +346,7 @@ export default {
               class="imagen-4-icon"
               loading="lazy"
               alt=""
-              src="../assets/imagen-4@2x.png"
+              src="../../assets/imagen-4@2x.png"
             />
 
             <img class="footer-child" loading="lazy" alt="" />

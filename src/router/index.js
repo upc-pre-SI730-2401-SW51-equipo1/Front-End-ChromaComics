@@ -1,6 +1,6 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../components/LadingPage.vue'
+import Home from '../public/pages/LadingPage.vue'
 
 const routes = [
   { path: '/', component: Home },
