@@ -1,9 +1,15 @@
 <script>
 import {defineComponent} from "vue";
-import ComicCard from "@/comics/components/comic-card.component.vue";
-import {fetchComics} from "@/comics/service/comics-api.service";
+import ComicCard from "../components/comic-card.component.vue";
+import {fetchComics} from "../service/comics-api.service.js";
 import Button from "primevue/button";
 import Image from "primevue/image";
+import Menubar from "primevue/menubar";
+import DataTable from "primevue/datatable";
+import Card from "primevue/card";
+import Column from "primevue/column";
+import Toolbar from "primevue/toolbar";
+import CascadeSelect from "primevue/cascadeselect";
 
 export default defineComponent({
   name: 'Gallery',

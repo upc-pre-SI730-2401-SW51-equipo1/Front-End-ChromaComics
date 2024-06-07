@@ -1,6 +1,12 @@
 <script>
   import Button from "primevue/button";
   import Image from "primevue/image";
+  import Menubar from "primevue/menubar";
+  import DataTable from "primevue/datatable";
+  import Card from "primevue/card";
+  import Column from "primevue/column";
+  import Toolbar from "primevue/toolbar";
+  import CascadeSelect from "primevue/cascadeselect";
 
   export default {
     name: 'ComicCard',
