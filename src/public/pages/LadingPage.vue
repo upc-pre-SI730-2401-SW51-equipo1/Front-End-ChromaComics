@@ -37,6 +37,7 @@ export default {
                       <b class="testimonios"><a href="#testimonios">Testimonials</a></b>
                       <b class="contact-us" id="contactUsText"><a href="#contact-us">contact us</a></b>
                       <b class="nuestros-planes"><a href="#nuestros-planes">Our Plans</a></b>
+                      <button class="component-2" @click="navigateToLogin">Sing In</button>
                     </nav>
                   </nav>
                 </header>
