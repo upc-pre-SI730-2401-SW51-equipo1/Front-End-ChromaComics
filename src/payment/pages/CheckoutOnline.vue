@@ -2,8 +2,8 @@
 
 import Online from "../component/PayOnline.vue";
 
-import Footer from "/src/public/pages/footer.vue";
-import Header from "/src/public/pages/header.vue";
+import Footer from "../../public/pages/footer.vue";
+import Header from "../../public/pages/header.vue";
 import {defineComponent} from "vue";
 
 export default defineComponent({

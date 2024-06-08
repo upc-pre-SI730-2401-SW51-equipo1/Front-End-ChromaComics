@@ -5,7 +5,7 @@
         <img
             :class="$style.wrapperRectangle1Child"
             :alt="''"
-            :src="'../../assets/rectangle-1@2x.png'"
+            src='../../assets/rectangle-1@2x.png'
         />
       </div>
       <div :class="$style.rectangleParent">
@@ -107,7 +107,7 @@
             <img
                 :class="$style.dashiconsarrowDownAlt22"
                 alt=""
-                :src="'../../assets/dashiconsarrowdownalt2-1.svg'"
+                src='../../assets/dashiconsarrowdownalt2-1.svg'
             />
           </div>
           <textarea
@@ -258,7 +258,7 @@
               :class="$style.guaranteeIcon"
               loading="lazy"
               alt=""
-              :src="'src/public/assets/guarantee.svg'"
+              src='../../assets/guarantee.svg'
           />
           <div :class="$style.frameChild11"/>
           <div :class="$style.text1">
@@ -271,7 +271,7 @@
               :class="$style.shippingIcon"
               loading="lazy"
               alt=""
-              :src="'src/public/assets/shipping.svg'"
+              src='../../assets/shipping.svg'
           />
           <div :class="$style.text2">
             <h3 :class="$style.freeShipping">Free Shipping</h3>
@@ -294,8 +294,8 @@
 </template>
 <script>
 import {defineComponent, ref} from "vue";
-import {OnlineEntity} from "src/payment/model/online.entity";
-import {PaymentService} from "src/payment/service/payment.service";
+import {OnlineEntity} from '../model/online.entity.js';
+import {PaymentService} from '../service/payment.service.js';
 
 export default defineComponent({
   name: "Online",

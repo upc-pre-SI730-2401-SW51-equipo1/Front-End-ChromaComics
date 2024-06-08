@@ -6,7 +6,7 @@
           :class="$style.image4Icon"
           loading="lazy"
           alt=""
-          :src="'./assets/image-4@2x.png'"
+          src='../../assets/image-4@2x.png'
       />
       <div :class="$style.chromacomicsWrapper">
         <div :class="$style.chromacomics">ChromaComics</div>
@@ -27,32 +27,32 @@
               :class="$style.mdiaccountAlertOutlineIcon"
               loading="lazy"
               alt=""
-              :src="'./assets/mdiaccountalertoutline.svg'"
+              src='../../assets/mdiaccountalertoutline.svg'
           />
           <img
               :class="$style.akarIconssearch"
               loading="lazy"
               alt=""
-              :src="'./assets/akariconssearch.svg'"
+              src='../../assets/akariconssearch.svg'
           />
           <img
               :class="$style.akarIconsheart"
               loading="lazy"
               alt=""
-              :src="'./assets/akariconsheart.svg'"
+              src='../../assets/akariconsheart.svg'
           />
           <img
               :class="$style.antDesignshoppingCartOutliIcon"
               loading="lazy"
               alt=""
-              :src="'./assets/antdesignshoppingcartoutlined.svg'"
+              src='../../assets/antdesignshoppingcartoutlined.svg'
               @click="showModal = true"
           />
           <div :class="$style.meubelHouseLogos05Parent">
             <img
                 :class="$style.meubelHouseLogos05Icon"
                 alt=""
-                :src="'./assets/meubel-house-logos05@2x.png'"
+                src='../../assets/meubel-house-logos05@2x.png'
             />
             <b :class="$style.skinclinic">ChromaComics</b>
           </div>

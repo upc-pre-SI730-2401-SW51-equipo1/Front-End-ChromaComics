@@ -1,7 +1,7 @@
 <script >
 import { defineComponent } from "vue";
-import Header from "@/public/pages/header.vue";
-import Footer from "@/public/pages/footer.vue";
+import Header from "../../public/pages/header.vue";
+import Footer from "../../public/pages/footer.vue";
 import Ofline from "../component/PayOfline.vue";
 
 export default defineComponent({

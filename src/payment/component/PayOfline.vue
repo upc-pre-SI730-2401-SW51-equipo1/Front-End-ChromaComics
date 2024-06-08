@@ -12,7 +12,7 @@
       <div :class="$style.topMenuBarParent">
         <div :class="$style.topMenuBar" />
         <div :class="$style.logoArea">
-          <img :class="$style.image4Icon" alt="" :src="'../../assets/image-4@2x.png'" />
+          <img :class="$style.image4Icon" alt="" src='../../assets/image-4@2x.png' />
         </div>
         <h1 :class="$style.ckeckout">ckeckout</h1>
         <div :class="$style.mainBanner">
@@ -23,7 +23,7 @@
                   :class="$style.dashiconsarrowDownAlt2"
                   loading="lazy"
                   alt=""
-                    :src="'../../assets/dashiconsarrowdownalt2@2x.png'"
+                    src='../../assets/dashiconsarrowdownalt2@2x.png'
               />
             </div>
             <div :class="$style.checkout">checkout</div>
@@ -209,8 +209,8 @@
 <script>
 
 import { defineComponent,ref  } from "vue";
-import {PaymentService} from "src/payment/service/payment.service";
-import {UserEntity} from "src/payment/model/user.entity.js";
+import {PaymentService} from '../service/payment.service.js';
+import {UserEntity} from '../model/user.entity.js';
 export default defineComponent({
   name: "Ofline",
   setup() {
