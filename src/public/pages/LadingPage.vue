@@ -1,11 +1,20 @@
 <script >
+import { useRouter } from 'vue-router';
 import Button from 'primevue/button';
 import Image from 'primevue/image';
+import router from "../../router/index.js";
 export default {
   components: {
     'button': Button,
     'img': Image
-  }
+  },
+
+  methods: {
+    navigateToLogin() {
+      router.push('/Login');
+    },
+  },
+
 }
 </script>
 
@@ -41,7 +50,7 @@ export default {
                         </div>
                         <div class="comment-box-component-wrapper">
                           <div class="comment-box-component">
-                            <button class="component-2">
+                            <button class="component-2" @click="navigateToLogin">
                               <div class="component-2-child"></div>
                               <div class="send-button-component-parent">
                                 <div class="send-button-component"></div>
