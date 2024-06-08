@@ -1,5 +1,5 @@
 import http from "../../shared/services/http-common.js";
-import { Comic } from "@/recommendations/model/Comic.entity.js";
+import { Comic } from "../model/Comic.entity.js";
 
 class RecommendationsService {
     getAll() {

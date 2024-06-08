@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import RecommendationsService from '@/recommendations/services/recommendations.service.js';
+import RecommendationsService from '../../recommendations/services/recommendations.service.js';
 
 const recommendedComics = ref([]);
 
