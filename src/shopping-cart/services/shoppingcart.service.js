@@ -1,5 +1,4 @@
 import http from "../../shared/services/http-common.js";
-import { Shoppingcart } from "../model/Shoppingcart.entity.js";
 
 class ShoppingcartService {
     getAll() {
@@ -10,7 +9,7 @@ class ShoppingcartService {
         return http.get(`/shoppingcart/${id}`);
     }
 
-    create(data){
+    create(data) {
         return http.post('/shoppingcart', data);
     }
 
@@ -22,42 +21,22 @@ class ShoppingcartService {
         return http.delete(`/shoppingcart/${id}`);
     }
 
-    async getAllCarts() {
+    async getCart() {
         try {
-            const response = await http.get('/shoppingcart');
-            if (response.data && Array.isArray(response.data)) {
-                return response.data.map(shoppingcart => Shoppingcart.fromDisplayableCart(shoppingcart));
-            } else {
-                console.error('La respuesta no tiene el formato esperado.');
-                return [];
-            }
+            const response = await http.get('/shoppingcart'); 
+            return response.data.length > 0 ? response.data[0] : null; 
         } catch (error) {
             console.error('Error fetching cart:', error);
             throw error;
         }
     }
 
-    async getCart() {
-        try {
-            const response = await http.get('/shoppingcart');
-            if (response.data && Array.isArray(response.data) && response.data.length > 0) {
-                return response.data[0]; // Asumiendo que hay un solo carrito
-            } else {
-                console.error('La respuesta no tiene el formato esperado o está vacía.');
-                return { id: null, items: [] }; // Carrito vacío por defecto
-            }
-        } catch (error) {
-            console.error('Error fetching cart:', error);
-            return { id: null, items: [] }; // Carrito vacío en caso de error
-        }
-    }
-
     async getAllBooks() {
         try {
-            const response = await http.get('/libros');
+            const response = await http.get('/libroscarrito');
             return response.data;
         } catch (error) {
-            console.error('Error fetching the books:', error);
+            console.error('Error fetching books:', error);
             throw error;
         }
     }

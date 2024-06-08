@@ -85,18 +85,9 @@ const totalPrice = computed(() => {
 
 
     <Dialog header="Your Shopping Cart!" v-model:visible="displayCart" modal style="width: 50vw" @hide="closeCart">
-      <div v-if="ShopCart.value && ShopCart.value.items.length > 0" class="cart-cards">
-        <div v-for="shoppingcart in ShopCart.value.items" :key="shoppingcart.libroid" class="cart-card">
-          <div class="cart-info">
-            <h3 class="cart-title">{{ shoppingcart.productName }}</h3>
-            <p class="cart-quantity">Quantity: {{ shoppingcart.quantity }}</p>
-            <p class="cart-unit-price">Unit Price: ${{ shoppingcart.unitPrice.toFixed(2) }}</p>
-            <p class="cart-total-price">Total: ${{ shoppingcart.pricetotal.toFixed(2) }}</p>
-          </div>
-        </div>
-      </div>
-      <div v-else class="cart-empty">
-        <p>Your cart is empty.</p>
+        <div v-for="book in Books" :key="book.id" class="book-card">
+        <h3>{{ book.title }}</h3>
+        <p>${{ book.price.toFixed(2) }}</p>
       </div>
       <div v-if="ShopCart.value && ShopCart.value.items.length > 0" class="cart-summary">
         <h3>Total Price: ${{ totalPrice }}</h3>
