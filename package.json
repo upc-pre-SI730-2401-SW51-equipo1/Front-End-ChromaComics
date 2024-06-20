@@ -4,11 +4,10 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "npx vite",
-    "postinstall": "npx vite build --mode production",
-    "preinstall": "npm install --save-dev @vue/compiler-sfc && npm install --save-dev vite@latest",
+    "postinstall": "npm run build",
+    "start": "node server.js",
     "build": "npx vite build",
-    "preview": "npx vite preview",
-    "start": "npx vite preview"
+    "preview": "npx vite preview"
   },
   "engines": {
     "node": "v20.12.0",
