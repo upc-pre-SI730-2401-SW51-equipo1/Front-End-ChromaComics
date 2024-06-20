@@ -24,6 +24,7 @@
     "json-server": "^0.16.3",
     "primeicons": "^7.0.0",
     "primevue": "^3.52.0",
+    "serve-static": "^1.15.0",
     "vue": "^3.4.21",
     "vue-router": "^4.0.13"
   },
