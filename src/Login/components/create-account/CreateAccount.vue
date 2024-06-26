@@ -29,13 +29,13 @@ export default {
         return
       }
 
-      const response = await axios.post('http://localhost:3000/users', {
+      const response = await axios.post('https://backend-chromacomics-40a97e042fb4.herokuapp.com/api/v1/authentication/sign-up', {
         username: username.value,
         password: password.value,
-        mobileNumber: mobileNumber.value
+        cellphoneNumber: mobileNumber.value
       })
 
-      if (response.status === 201) {
+      if (response.status === 200) {
         setAuthenticated(true);
         Cookies.set('isAuthenticated', 'true');
         router.push('/comics')
