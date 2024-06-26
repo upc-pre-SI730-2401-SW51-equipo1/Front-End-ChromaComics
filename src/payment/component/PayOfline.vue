@@ -57,7 +57,7 @@
                     </div>
                   </div>
                   <div :class="$style.frame1">
-                    <b :class="$style.libroDeAventuras">Libro de Aventuras</b>
+                    <b :class="$style.libroDeAventuras">Mejores Precios Siempre</b>
                   </div>
                 </div>
               </div>
@@ -113,8 +113,8 @@
             <div :class="$style.frame3">
               <input
                   :class="$style.frameChild"
-                  placeholder="987654321"
-                  type="text" id="phone" v-model="newUser.phone"
+                  placeholder="Introducir telefono aqui"
+                  type="number" id="phoneNumber" v-model="newUser.phoneNumber"
               />
               <div :class="$style.formLabelWrapper">
                 <div :class="$style.formLabel">
@@ -135,9 +135,9 @@
           <div :class="$style.loadingSpinner2">
             <div :class="$style.callToAction">
               <img :class="$style.formFieldIcon" alt="" :src="'src/public/assets/frame-1.svg'" />
-                <input type="text" id="user" v-model="newUser.user"
+                <input type="text" id="user" v-model="newUser.firstName"
                     :class="$style.imageColumn"
-                               placeholder="Juan Pérez"
+                               placeholder=" "
 
                 />
             </div>
@@ -218,7 +218,7 @@ export default defineComponent({
     const paymentService = new PaymentService();
 
     // Creas una referencia a un nuevo objeto UserEntity
-    const newUser = ref(new UserEntity('', '', '', ''));
+    const newUser = ref(new UserEntity(0, '', ''));
 
     // Método para crear un nuevo usuario
     const createUser = () => {
@@ -239,6 +239,7 @@ export default defineComponent({
       createUser
     };
   }
+
 });
 </script>
 

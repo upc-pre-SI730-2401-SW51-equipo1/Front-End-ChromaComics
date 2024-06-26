@@ -4,7 +4,7 @@
       <div :class="$style.wrapperRectangle1">
         <img
             :class="$style.wrapperRectangle1Child"
-            :alt="''"
+            alt=''
             src='../../assets/rectangle-1@2x.png'
         />
       </div>
@@ -46,21 +46,21 @@
                     <div :class="$style.firstNameParent">
                       <div :class="$style.firstName">First Name</div>
                       <div :class="$style.rectangleWrapper">
-                        <input v-model="newUser.user" :class="$style.rectangleDiv"/>
+                        <input v-model="newUser.firstName" :class="$style.rectangleDiv"/>
                       </div>
                     </div>
                     <div :class="$style.dataLink">
                       <div :class="$style.lastName">Last Name</div>
                       <div :class="$style.dataLinkInner">
-                        <input v-model="newUser.user" :class="$style.frameChild1"/>
+                        <input v-model="newUser.lastName" :class="$style.frameChild1"/>
                       </div>
                     </div>
                   </div>
                   <div :class="$style.companyNameOptional">
-                    Company Name (Optional)
+                    Codigo de Compra
                   </div>
                 </div>
-                <input v-model="newUser.company" :class="$style.frameChild2"/>
+                <input type="number" v-model="newUser.shoppingId" :class="$style.frameChild2" />
               </div>
             </div>
             <div :class="$style.frameWrapper1">
@@ -100,7 +100,7 @@
             <div :class="$style.provinceParent">
               <div :class="$style.province">Province</div>
               <div :class="$style.rectangleWrapper2">
-                <input v-model="newUser.Province" :class="$style.frameChild4" type="text"/>
+                <input v-model="newUser.number" :class="$style.frameChild4" type="text"/>
               </div>
               <div :class="$style.westernProvince">Western Province</div>
             </div>
@@ -115,7 +115,7 @@
               placeholder="ZIP code"
               rows="6"
               cols="23"
-              v-model="newUser.ZipCode"
+              v-model="newUser.postalCode"
           />
           <div :class="$style.frameParent2">
             <textarea
@@ -302,10 +302,10 @@ export default defineComponent({
   setup() {
     // Creas una instancia de tu servicio
     const paymentService = new PaymentService();
-    const newUser = ref(new OnlineEntity('', '', '', '', '', '', '', '', '', '', '', '25'));
+    const newUser = ref(new OnlineEntity(0, '', 0, '', '', '', '', '', '', '', '', 0,'pending'));
     const createUser = () => {
       // Llama al método create de tu servicio con el nuevo usuario
-      paymentService.create(newUser.value).then(
+      paymentService.CreatePayment(newUser.value).then(
           response => {
             console.log('Pago creado con éxito:', response);
           },
@@ -345,7 +345,7 @@ export default defineComponent({
   bottom: 0;
   left: 0;
   max-width: 100%;
-  max-height: 100%;
+  max-height: 200%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -359,14 +359,15 @@ export default defineComponent({
   margin: 0 !important;
   right: 0;
   bottom: 0;
-  left: 0;
-  background-color: var(--color-white);
+
+  background-color: white;
 }
 
 .image4Icon {
   height: 4.5rem;
   width: 5.625rem;
   position: relative;
+
   border-radius: var(--br-181xl);
   object-fit: cover;
   z-index: 1;
@@ -376,10 +377,10 @@ export default defineComponent({
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-start;
-  padding: 0 var(--padding-37xl);
-}
 
+  justify-content: center; /* Centra los elementos a lo largo del eje principal (horizontal) */
+  padding: 0 37px;
+}
 .ckeckout {
   margin: 0;
   position: relative;
@@ -416,7 +417,7 @@ export default defineComponent({
 }
 
 .checkout {
-  position: relative;
+
   font-weight: 300;
   display: inline-block;
   min-width: 4.625rem;
@@ -441,10 +442,11 @@ export default defineComponent({
 }
 
 .ckeckoutParent {
-  display: flex;
-  flex-direction: column;
+
+  flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
+  left: 45em;
 }
 
 .rectangleParent {
@@ -453,7 +455,7 @@ export default defineComponent({
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0 var(--padding-12xl) var(--padding-12xl);
+  left:35em;
   box-sizing: border-box;
   position: relative;
   gap: var(--gap-11xl);
@@ -463,15 +465,15 @@ export default defineComponent({
 
 .wrapperRectangle1Parent {
   align-self: stretch;
-  display: flex;
+
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-11xs) var(--padding-486xl) var(--padding-66xl);
   box-sizing: border-box;
   position: relative;
-  max-width: 100%;
-  text-align: left;
+  max-width: 200%;
+
   font-size: var(--font-size-29xl);
   color: var(--color-black);
   font-family: var(--font-poppins),serif;
@@ -486,7 +488,7 @@ export default defineComponent({
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: var(--color-white);
+  background-color: white;
 }
 
 .frameInner {
@@ -498,7 +500,7 @@ export default defineComponent({
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: var(--color-white);
+  background-color: white;
 }
 
 .billingDetails {
@@ -522,7 +524,7 @@ export default defineComponent({
   flex: 1;
   position: relative;
   border-radius: var(--br-3xs);
-  background-color: var(--color-white);
+  background-color: white;
   border: 1px solid var(--color-darkgray-200);
 }
 
@@ -561,7 +563,7 @@ export default defineComponent({
   flex: 1;
   position: relative;
   border-radius: var(--br-3xs);
-  background-color: var(--color-white);
+  background-color: white;
   border: 1px solid var(--color-darkgray-200);
   z-index: 1;
 }
@@ -616,7 +618,7 @@ export default defineComponent({
   height: 4.688rem;
   position: relative;
   border-radius: var(--br-3xs);
-  background-color: var(--color-white);
+  background-color: white;
   border: 1px solid var(--color-darkgray-200);
   box-sizing: border-box;
   z-index: 1;
@@ -651,7 +653,7 @@ export default defineComponent({
 .rectangleInput {
   border: 1px solid var(--color-darkgray-200);
   outline: none;
-  background-color: var(--color-white);
+  background-color: white;
   height: 4.688rem;
   flex: 1;
   position: relative;
@@ -722,7 +724,7 @@ export default defineComponent({
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0 0 0 var(--padding-12xs);
+  padding: 0 0 0 12px;
   box-sizing: border-box;
   max-width: 100%;
 }
@@ -739,7 +741,7 @@ export default defineComponent({
   flex: 1;
   position: relative;
   border-radius: var(--br-3xs);
-  background-color: var(--color-white);
+  background-color: white;
   border: 1px solid var(--color-darkgray-200);
   box-sizing: border-box;
   max-width: 100%;
@@ -793,7 +795,7 @@ export default defineComponent({
   flex: 1;
   position: relative;
   border-radius: var(--br-3xs);
-  background-color: var(--color-white);
+  background-color: white;
   border: 1px solid var(--color-darkgray-200);
   box-sizing: border-box;
   max-width: 100%;
@@ -855,7 +857,7 @@ export default defineComponent({
 .frameChild4 {
   border: 1px solid var(--color-darkgray-200);
   outline: none;
-  background-color: var(--color-white);
+  background-color: white;
   height: 4.688rem;
   flex: 1;
   position: relative;
@@ -971,7 +973,7 @@ export default defineComponent({
   flex: 1;
   position: relative;
   border-radius: var(--br-3xs);
-  background-color: var(--color-white);
+  background-color: white;
   border: 1px solid var(--color-darkgray-200);
   box-sizing: border-box;
   max-width: 100%;
@@ -1024,7 +1026,7 @@ export default defineComponent({
   bottom: 0;
   left: 0;
   border-radius: var(--br-3xs);
-  background-color: var(--color-white);
+  background-color: white;
   border: 1px solid var(--color-darkgray-200);
   box-sizing: border-box;
 }
@@ -1079,7 +1081,7 @@ export default defineComponent({
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: var(--color-white);
+  background-color: white;
 }
 
 .product {
@@ -1238,7 +1240,7 @@ export default defineComponent({
   position: relative;
   font-size: var(--font-size-5xl);
   display: inline-block;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #ffcf33;
+  background:  #ffcf33;
 
   -webkit-text-fill-color: transparent;
   min-width: 3.875rem;
@@ -1350,7 +1352,7 @@ export default defineComponent({
   align-self: stretch;
   position: relative;
   font-weight: 300;
-  color: var(--color-darkgray-200);
+  color: darkgray;
   text-align: justify;
 }
 
@@ -1437,7 +1439,7 @@ export default defineComponent({
   align-items: flex-start;
   justify-content: flex-start;
   padding: 0 var(--padding-12xs);
-  color: var(--color-darkgray-200);
+  color: darkgray;
 }
 
 .frameParent9 {
@@ -1584,7 +1586,7 @@ export default defineComponent({
   max-width: 100%;
   text-align: left;
   font-size: var(--font-size-base);
-  color: var(--color-black);
+  color: black;
   font-family: var(--font-poppins),serif;
 }
 
@@ -1794,6 +1796,7 @@ export default defineComponent({
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 100%;
+  overflow-y: auto; /* Añade una barra de desplazamiento vertical si es necesario */
 }
 
 @media screen and (max-width: 1325px) {
