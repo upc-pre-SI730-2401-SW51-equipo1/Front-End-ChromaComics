@@ -28,16 +28,15 @@ export default {
         return
       }
 
-      const response = await axios.get('http://localhost:3000/users', {
-        params: {
-          username: username.value,
-          password: password.value
-        }
+      const response = await axios.post('https://backend-chromacomics-40a97e042fb4.herokuapp.com/api/v1/authentication/sign-in', {
+        username: username.value,
+        password: password.value
       })
 
-      if (response.data.length > 0) {
+      if (response.data && response.data.token) {
         setAuthenticated(true);
-        Cookies.set('isAuthenticated', 'true');
+        Cookies.set('token', response.data.token, { session: true });
+        Cookies.set('isAuthenticated', 'true', { session: true });
         router.push('/comics')
       } else {
         alert('Invalid credentials')
