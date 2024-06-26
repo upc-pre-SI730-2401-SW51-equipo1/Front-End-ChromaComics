@@ -57,7 +57,7 @@
                     </div>
                   </div>
                   <div :class="$style.frame1">
-                    <b :class="$style.libroDeAventuras">Mejores Precios Siempre</b>
+                    <b :class="$style.libroDeAventuras">Mejores</b>
                   </div>
                 </div>
               </div>
@@ -96,7 +96,7 @@
         <div :class="$style.errorMessage">
           <div :class="$style.listItem">
             <div :class="$style.listIcon">
-              <div :class="$style.volverAMtodos" @click="$router.push('/ofline')">Ir al pago Ofline</div>
+              <div :class="$style.volverAMtodos" @click="$router.push('/paymentOnline')">Ir al pago Ofline</div>
             </div>
             <div :class="$style.imageCaption">
               <img :class="$style.cardLayoutIcon" alt="" :src="'src/public/assets/frame-3.svg'" />
@@ -114,7 +114,7 @@
               <input
                   :class="$style.frameChild"
                   placeholder="Introducir telefono aqui"
-                  type="number" id="phoneNumber" v-model="newUser.phoneNumber"
+                  type="text" id="phoneNumber" v-model="newUser.phoneNumber"
               />
               <div :class="$style.formLabelWrapper">
                 <div :class="$style.formLabel">
@@ -135,7 +135,7 @@
           <div :class="$style.loadingSpinner2">
             <div :class="$style.callToAction">
               <img :class="$style.formFieldIcon" alt="" :src="'src/public/assets/frame-1.svg'" />
-                <input type="text" id="user" v-model="newUser.firstName"
+                <input type="text" id="user" v-model="newUser.user"
                     :class="$style.imageColumn"
                                placeholder=" "
 
@@ -222,6 +222,7 @@ export default defineComponent({
 
     // Método para crear un nuevo usuario
     const createUser = () => {
+
       // Llama al método create de tu servicio con el nuevo usuario
       paymentService.create(newUser.value).then(
           response => {
@@ -1343,6 +1344,7 @@ export default defineComponent({
   max-width: 100%;
   font-size: var(--font-size-6xl);
   color: var(--color-gray-100);
+
 }
 .returnsPolicy {
   align-self: stretch;
@@ -1357,6 +1359,8 @@ export default defineComponent({
   font-size: var(--font-size-29xl);
   color: var(--color-black);
   font-family: var(--font-poppins),serif;
+  overflow-y: auto;
+  height: 500px; /* Ajusta este valor según tus necesidades */
 }
 
 @media screen and (max-width: 1325px) {

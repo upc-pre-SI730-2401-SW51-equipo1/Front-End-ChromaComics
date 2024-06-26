@@ -1,6 +1,6 @@
-export function UserEntity(id, user, phone) {
+export function UserEntity(id, user, phoneNumber) {
     this.id = id;
     this.user = user;
-    this.phone = phone;
+    this.phoneNumber = phoneNumber;
 
 }

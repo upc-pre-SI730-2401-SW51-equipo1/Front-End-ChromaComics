@@ -1,5 +1,7 @@
 <template>
+
   <main :class="$style.component4">
+
     <section :class="$style.wrapperRectangle1Parent">
       <div :class="$style.wrapperRectangle1">
         <img
@@ -42,6 +44,7 @@
             <div :class="$style.outputPort">
               <div :class="$style.frameGroup">
                 <div :class="$style.frameContainer">
+
                   <div :class="$style.frameDiv">
                     <div :class="$style.firstNameParent">
                       <div :class="$style.firstName">First Name</div>
@@ -144,50 +147,20 @@
         <div :class="$style.rectangleParent2">
           <div :class="$style.frameChild8"/>
           <div :class="$style.frameParent3">
-            <div :class="$style.frameParent4">
-              <div :class="$style.frameParent5">
-                <div :class="$style.productParent">
-                  <h3 :class="$style.product">Product</h3>
-                  <div :class="$style.frameWrapper4">
-                    <div :class="$style.asgaardSofaParent">
-                      <div :class="$style.asgaardSofa">Asgaard sofa</div>
-                      <div :class="$style.xWrapper">
-                        <div :class="$style.x">X</div>
-                      </div>
-                      <div :class="$style.wrapper">
-                        <div :class="$style.div">1</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div :class="$style.frameParent6">
-                  <div :class="$style.subtotalWrapper">
-                    <h3 :class="$style.subtotal">Subtotal</h3>
-                  </div>
-                  <div :class="$style.s25">S/.25</div>
-                </div>
-              </div>
-              <div :class="$style.frameWrapper5">
-                <div :class="$style.frameParent7">
-                  <div :class="$style.subtotalParent">
-                    <div :class="$style.subtotal1">Subtotal</div>
-                    <div :class="$style.s251">S/.25</div>
-                  </div>
-                  <div :class="$style.frameParent8">
-                    <div :class="$style.totalWrapper">
-                      <div :class="$style.total">Total</div>
-                    </div>
-                    <b :class="$style.s252">S/.25</b>
-                  </div>
-                </div>
-              </div>
-            </div>
+
             <div :class="$style.frameWrapper6">
               <div :class="$style.frameParent9">
                 <div :class="$style.lineWrapper">
                   <div :class="$style.lineDiv"/>
                 </div>
                 <div :class="$style.dataConnectorParent">
+                  <div v-for="(product, index) in products" :key="index">
+                    <h2>{{ product.title }}</h2>
+                    <p>Precio: {{ product.price }} soles</p>
+                    <p>Cantidad: {{ product.quantity }}</p>
+
+                  </div>
+                  <p>Cantidad total de la compra: {{ totalQuantity }}</p>
                   <div :class="$style.dataConnector">
                     <div :class="$style.shapeContainer">
                       <div :class="$style.shapeContainerInner">
@@ -235,6 +208,7 @@
               </div>
             </div>
             <div :class="$style.frameWrapper7">
+
               <button @click="createUser" :class="$style.groupButton">
                 <div :class="$style.frameChild10"/>
                 <div :class="$style.placeOrder">Place order</div>
@@ -293,9 +267,9 @@
   </main>
 </template>
 <script>
-import {defineComponent, ref} from "vue";
-import {OnlineEntity} from '../model/online.entity.js';
-import {PaymentService} from '../service/payment.service.js';
+import { defineComponent, ref } from "vue";
+import { OnlineEntity } from '../model/online.entity.js';
+import { PaymentService } from '../service/payment.service.js';
 
 export default defineComponent({
   name: "Online",
@@ -303,6 +277,10 @@ export default defineComponent({
     // Creas una instancia de tu servicio
     const paymentService = new PaymentService();
     const newUser = ref(new OnlineEntity(0, '', 0, '', '', '', '', '', '', '', '', 0,'pending'));
+
+    // Creas una referencia a una nueva lista de productos
+    const products = ref([]);
+
     const createUser = () => {
       // Llama al método create de tu servicio con el nuevo usuario
       paymentService.CreatePayment(newUser.value).then(
@@ -314,12 +292,35 @@ export default defineComponent({
           }
       );
     };
+
+    // Método para obtener los productos del carrito de compras y los títulos de los productos
+    const getProducts = async () => {
+      const cartItems = await paymentService.getproductsShoppingCart();
+      for (let item of cartItems) {
+        const product = await paymentService.gettitleComic(item.productId);
+        const price = Math.floor(Math.random() * (150 - 20 + 1)) + 20;
+        products.value.push({
+          title: product.title,
+          price: price,
+          quantity: 1 // Asumiendo que la cantidad es 1
+        });
+      }
+    };
+
+    // Llama al método getProducts cuando se monta el componente
+    getProducts();
+
     return {
       newUser,
-      createUser
+      createUser,
+      products
     };
+  },
+  computed: {
+    totalQuantity() {
+      return this.products.reduce((total, product) => total + product.price, 0);
+    }
   }
-
 });
 </script>
 <style module>
@@ -1796,7 +1797,8 @@ export default defineComponent({
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 100%;
-  overflow-y: auto; /* Añade una barra de desplazamiento vertical si es necesario */
+  overflow-y: auto;
+  min-height: 500px; /* Añade una barra de desplazamiento vertical si es necesario */
 }
 
 @media screen and (max-width: 1325px) {
