@@ -1,15 +1,22 @@
 <script >
-import shoppingcartContent from './shopping-cart/component/shoppingcart-content.component.vue';
-
+import useAuth from "./Login/service/useAuth.js";
+import Cookies from "js-cookie";
 export default {
-  name: 'App'
+  name: 'App',
+
+  created() {
+    const {isAuthenticated, setAuthenticated} = useAuth();
+    const isAuth = Cookies.get('isAuthenticated') === 'true';
+    setAuthenticated(isAuth);
+  }
 }
+
 </script>
 
 <template>
-<router-view/>
+  <router-view/>
 
 </template>
 
-<style >
+<style>
 </style>

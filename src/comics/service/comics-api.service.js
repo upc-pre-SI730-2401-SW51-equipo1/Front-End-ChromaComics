@@ -1,7 +1,7 @@
 import http from '../../shared/services/http-common';
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3000/comics';
+const baseUrl = 'https://backend-chromacomics-40a97e042fb4.herokuapp.com/api/v1/';
 
 export class TutorialsApiService {
     getComics() {

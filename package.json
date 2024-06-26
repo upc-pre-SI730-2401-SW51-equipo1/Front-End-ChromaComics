@@ -2,22 +2,35 @@
   "name": "untitled",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "npx vite",
+    "postinstall": "npm run build",
+    "start": "node server.js",
+    "build": "npx vite build",
+    "preview": "npx vite preview"
+  },
+  "engines": {
+    "node": "v20.12.0",
+    "npm": "10.5.0"
   },
   "dependencies": {
     "axios": "^1.7.2",
     "components": "^0.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "http-errors": "^2.0.0",
+    "js-cookie": "^3.0.5",
+    "json-server": "^0.16.3",
     "primeicons": "^7.0.0",
     "primevue": "^3.52.0",
+    "serve-static": "^1.15.0",
     "vue": "^3.4.21",
     "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
-    "vite": "^5.2.0"
+    "@vue/compiler-sfc": "^3.4.29",
+    "gh-pages": "^6.1.1",
+    "vite": "^5.3.1"
   }
 }

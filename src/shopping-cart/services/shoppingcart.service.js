@@ -1,33 +1,38 @@
 import http from "../../shared/services/http-common.js";
 
 class ShoppingcartService {
-    async getCart() {
-        try {
-            const response = await http.get('/shoppingcart');
-            return response.data.length > 0 ? response.data[0] : null;
-        } catch (error) {
-            console.error('Error fetching cart:', error);
-            throw error;
-        }
+  async getAllShoppingCarts() {
+    try {
+      const response = await http.get('/shopping-cart');
+      console.log('Response from getCart:', response.data);
+      return response.data.length > 0 ? response.data[0] : { id: null, items: [] };
+    } catch (error) {
+      console.error('Error fetching cart:', error);
+      throw error;
     }
+  }
 
-    async getAllBooks() {
-        try {
-            const response = await http.get('/comics');
-            return response.data;
-        } catch (error) {
-            console.error('Error fetching comics:', error);
-            throw error;
-        }
+  async getAllComics() {
+    try {
+      const response = await http.get('/v1/comics');
+      console.log('Response from getAllComics:', response.data);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching comics:', error);
+      throw error;
     }
+  }
 
-    create(data) {
-        return http.post('/shoppingcart', data);
+  async createShoppingCart(cartItems) {
+    try {
+        const response = await http.post('/shopping-cart', cartItems);
+        console.log('Response from createShoppingCart:', response.data);
+        return response.data; // Debes asegurarte de que el servidor devuelva el carrito creado
+    } catch (error) {
+        console.error('Error creating shopping cart:', error);
+        throw error;
     }
-
-    update(id, data) {
-        return http.put(`/shoppingcart/${id}`, data);
-    }
+}
 }
 
 export default new ShoppingcartService();
