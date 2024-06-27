@@ -27,7 +27,20 @@ export default defineComponent({
   data() {
     return {
       comics: [],
+      searchTerm: '',
     };
+  },
+  methods: {
+    search() {
+      if (this.searchTerm) {
+        this.comics = this.comics.filter(comic => comic.name.includes(this.searchTerm));
+      } else {
+        // Fetch all comics again if the search term is empty
+        fetchComics().then(data => {
+          this.comics = data;
+        });
+      }
+    }
   },
   created() {
     fetchComics().then(data => {
@@ -38,19 +51,21 @@ export default defineComponent({
 </script>
 
 <template>
-  <div>
-  <nav class="navbar">
-    <pv-button icon="pi pi-sliders-h" class="p-mr-2" plain text></pv-button>
-    <div class="search-bar">
-      <input type="text" placeholder="Search comics">
-      <button type="button">Search</button>
-    </div>
-  </nav>
-  </div>
 
-  <div>
+
+    <nav class="navbar">
+      <pv-button icon="pi pi-sliders-h" class="p-mr-2" plain text></pv-button>
+      <div class="search-bar">
+        <input type="text" v-model="searchTerm" placeholder="Search comics">
+        <button type="button" @click="search">Search</button>
+      </div>
+    </nav>
+  <div style="overflow: auto;">
     <ComicCard  v-for="comic in comics" :key="comic.id" :comic="comic" class="ComicCard"></ComicCard>
   </div>
+
+
+
 
 </template>
 
@@ -80,12 +95,11 @@ li{
 }
 
 /* Navbar styles */
+/* Navbar styles */
 .navbar {
   background-color: #fff;
   color: #222;
   padding: 1rem 1rem;
-  position: fixed;
-  top: 0;
   width: 100%;
   z-index: 10;
 }

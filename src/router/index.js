@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../public/pages/LadingPage.vue'
-import Gallery from '../comics/components/gallery.component.vue'
+import Gallery from '../comics/pages/list-comics.vue'
 import Login from "../Login/components/Login/Login.vue";
 import CreateAccount from "../Login/components/create-account/CreateAccount.vue";
 import recomendationContentComponent from "../recommendations/component/recomendation-content.component.vue";

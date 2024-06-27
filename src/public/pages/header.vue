@@ -17,7 +17,7 @@
         <nav :class="$style.frameWrapper">
           <nav :class="$style.homeParent">
             <div :class="$style.home" @click="$router.push('/recomendation')">Home</div>
-            <div :class="$style.shop" @click="$router.push('/filter')">Shop</div>
+            <div :class="$style.shop" @click="$router.push('/comics')">Shop</div>
             <div :class="$style.about" @click="$router.push('/home')">About</div>
             <div :class="$style.contact" @click="$router.push('/home')">Contact</div>
           </nav>

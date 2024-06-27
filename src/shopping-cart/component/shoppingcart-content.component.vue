@@ -1,110 +1,116 @@
-<script setup>
-import { ref, onMounted, computed } from 'vue';
-import Dialog from 'primevue/dialog';
-import Button from 'primevue/button';
-import shoppingcartService from '../services/shoppingcart.service';
-
-
-const displayCart = ref(false);
-const ShopCart = ref({ id: null, items: [] });
-const Books = ref([]);
-
-
-const fetchCartAndBooks = async () => {
-  try {
-    const cart = await shoppingcartService.getCart();
-    const books = await shoppingcartService.getAllBooks();
-
-    Books.value = books;
-    ShopCart.value = cart ? cart : { id: null, items: [] };
-
-  } catch (error) {
-    console.error('Error fetching the cart or books:', error);
-  }
-};
-
-onMounted(fetchCartAndBooks);
-
-
-const openCart = () => {
-  displayCart.value = true;
-};
-
-
-const closeCart = () => {
-  displayCart.value = false;
-};
-
-const addToCart = async (book) => {
-  const existingProduct = ShopCart.value.items.find(item => item.libroid === book.id);
-  if (existingProduct) {
-    existingProduct.quantity += 1;
-    existingProduct.pricetotal = existingProduct.quantity * existingProduct.unitPrice;
-  } else {
-    ShopCart.value.items.push({
-      libroid: book.id,
-      productName: book.title,
-      unitPrice: book.price,
-      quantity: 1,
-      pricetotal: book.price
-    });
-  }
-
-  try {
-    if (ShopCart.value.id) {
-      await shoppingcartService.update(ShopCart.value.id, ShopCart.value);
-    } else {
-      const response = await shoppingcartService.create(ShopCart.value);
-      ShopCart.value.id = response.data.id;
-    }
-  } catch (error) {
-    console.error('Error updating the cart:', error);
-  }
-};
-
-
-const totalPrice = computed(() => {
-  return ShopCart.value.items.reduce((acc, item) => acc + item.pricetotal, 0).toFixed(2);
-});
-</script>
-
 <template>
   <div>
 
     <Button label="Show Cart" icon="pi pi-shopping-cart" @click="openCart" />
 
 
-    <div class="book-list">
-      <div v-for="book in Books" :key="book.id" class="book-card">
-        <h3>{{ book.title }}</h3>
-        <p>{{ book.writer }}</p>
-        <p>${{ book.price.toFixed(2) }}</p>
-        <Button label="Add to Cart" icon="pi pi-plus" @click="addToCart(book)" />
+    <div class="comic-list">
+      <div v-for="comic in comics" :key="comic.id" class="comic-card">
+        <h3>{{ comic.title }}</h3>
+        <Button label="Add to Cart" icon="pi pi-plus" @click="addToCart(comic)" />
       </div>
     </div>
 
 
     <Dialog header="Your Shopping Cart!" v-model:visible="displayCart" modal style="width: 50vw" @hide="closeCart">
-        <div v-for="book in Books" :key="book.id" class="book-card">
-        <h3>{{ book.title }}</h3>
-        <p>${{ book.price.toFixed(2) }}</p>
+      <div v-if="!ShopCart || !ShopCart.items || ShopCart.items.length === 0" class="cart-empty">
+        Your cart is empty.
       </div>
-      <div v-if="ShopCart.value && ShopCart.value.items.length > 0" class="cart-summary">
-        <h3>Total Price: ${{ totalPrice }}</h3>
+      <div v-else class="cart-cards">
+        <div v-for="(item, index) in ShopCart.items" :key="index" class="cart-card">
+          <h3 class="cart-title">Product ID: {{ item.ProductId }}</h3>
+          <p>{{ item.title }}</p> 
+        </div>
+        <Button label="Proceed to Payment" icon="pi pi-save" @click="goToPayment" />
       </div>
     </Dialog>
   </div>
 </template>
 
+<script setup>
+import { ref, onMounted } from 'vue';
+import Dialog from 'primevue/dialog';
+import Button from 'primevue/button';
+import shoppingcartService from '../services/shoppingcart.service';
+import {useRouter} from "vue-router";
+
+
+const displayCart = ref(false);
+const ShopCart = ref({ id: null, items: [] });
+const comics = ref([]);
+const router = useRouter(); // Crea una instancia del router
+
+
+async function fetchComics() {
+  try {
+    comics.value = await shoppingcartService.getAllComics();
+  } catch (error) {
+    console.error('Error fetching comics:', error);
+  }
+}
+
+const goToPayment = () => {
+  router.push('/paymentOnline'); // Redirige a /paymentOfline
+};
+const openCart = () => {
+  displayCart.value = true;
+};
+
+const closeCart = () => {
+  displayCart.value = false;
+};
+
+
+const addToCart = (book) => {
+  ShopCart.value.items.push({
+    ProductId: book.id, 
+    title: book.title
+  });
+
+
+};
+
+
+const saveAsShoppingCart = async () => {
+  try {
+    if (ShopCart.value.items.length === 0) {
+      return; 
+    }
+
+
+    const newCart = {
+      items: ShopCart.value.items.map(item => ({
+        bookId: item.ProductId 
+      }))
+    };
+
+  
+    await shoppingcartService.createShoppingCart(newCart);
+
+
+    ShopCart.value = { id: null, items: [] };
+
+  } catch (error) {
+    console.error('Error saving shopping cart:', error);
+  }
+};
+
+onMounted(async () => {
+  await shoppingcartService.deleteAllCarts();
+  fetchComics();
+});
+</script>
+
 <style scoped>
-.book-list {
-  display: grid;
+.comic-list {
+  display: flex;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-.book-card {
+.comic-card {
   background-color: white;
   padding: 10px;
   display: flex;

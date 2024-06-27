@@ -29,18 +29,18 @@
 <template>
   <pv-card style="width: 25rem; overflow: hidden">
     <template #header>
-      <img :src="comic.image" style="width: 150px;" alt="Comics Cover" :aria-label="`Image by ${comic.writer}`"/>
+      <img src="../../assets/book.png"/>
     </template>
     <template #title>{{ comic.title }}</template>
     <template #subtitle>
       <div>
-        <span>Year: </span>{{ comic.year }}
+        <span>Sumary: </span>{{ comic.summary }}
       </div>
       <div>
-        <span>Publisher: </span>{{ comic.publisher }}
+        <span>category: </span>{{ comic.category.name }}
       </div>
       <div>
-        <span>Writer: </span>{{ comic.writer }}
+        <span>status: </span>{{ comic.status }}
       </div>
     </template>
   </pv-card>

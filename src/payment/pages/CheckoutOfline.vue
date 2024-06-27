@@ -14,7 +14,8 @@ export default defineComponent({
 
 <template>
   <div :class="$style.checkoutOfline">
-    <Header /><Ofline />
+    <Header />
+    <Ofline />
     <Footer
         chromaComicsDebugCommit="unset"
         chromaComicsFL33134ContaiDebugCommit="unset"
