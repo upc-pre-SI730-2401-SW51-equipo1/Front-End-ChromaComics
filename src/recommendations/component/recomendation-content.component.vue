@@ -29,17 +29,11 @@ onMounted(async () => {
             :key="comic.id"
             class="book-card"
         >
-          <img
-              :src="comic.image"
-              :alt="comic.title"
-              class="book-cover"
-          />
           <div class="book-info">
-            <h3 class="book-title">{{ comic.title }}</h3>
-            <p class="book-issue">Issue #{{ comic.issue }}</p>
-            <p class="book-year">Year: {{ comic.year }}</p>
-            <p class="book-publisher">Publisher: {{ comic.publisher }}</p>
-            <p class="book-writer">Writer: {{ comic.writer }}</p>
+            <h3 class="book-title">{{ comic.bookTitle }}</h3>
+            <p class="book-author">Author: {{ comic.author }}</p>
+            <p class="book-genre">Genre: {{ comic.genre }}</p>
+            <p class="book-description">{{ comic.description }}</p>
           </div>
         </div>
       </div>
@@ -115,13 +109,6 @@ export default {
   transform: translateY(-5px);
 }
 
-.book-cover {
-  width: 100%;
-  height: auto;
-  margin-bottom: 20px;
-  border-radius: 4px;
-}
-
 .book-info {
   text-align: center;
 }
@@ -132,17 +119,10 @@ export default {
   font-weight: 600;
 }
 
-.book-genre {
+.book-author, .book-genre, .book-description {
   margin: 8px 0;
   font-size: 14px;
   color: #888;
-}
-
-.book-price {
-  margin: 0;
-  font-weight: 600;
-  font-size: 16px;
-  color: #0073b7;
 }
 
 .show-more {
