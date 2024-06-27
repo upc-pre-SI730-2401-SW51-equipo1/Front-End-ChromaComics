@@ -3,28 +3,28 @@ import { Comic } from "../model/Comic.entity.js";
 
 class RecommendationsService {
     getAll() {
-        return http.get('/recommendation');
+        return http.get('api/recommendation');
     }
 
     getById(id) {
-        return http.get(`/recommendation/${id}`);
+        return http.get(`api/recommendation/${id}`);
     }
 
     create(data) {
-        return http.post('/recommendation', data);
+        return http.post('api/recommendation', data);
     }
 
     update(id, data) {
-        return http.put(`/recommendation/${id}`, data);
+        return http.put(`api/recommendation/${id}`, data);
     }
 
     delete(id) {
-        return http.delete(`/recommendation/${id}`);
+        return http.delete(`api/recommendation/${id}`);
     }
 
     async getAllComics() {
         try {
-            const response = await http.get('/recommendation');
+            const response = await http.get('api/recommendation');
             if (response.data && Array.isArray(response.data)) {
                 return response.data.map(comic => Comic.fromDisplayableComic(comic));
             } else {
