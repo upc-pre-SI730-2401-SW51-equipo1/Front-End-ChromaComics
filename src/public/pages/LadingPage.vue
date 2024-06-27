@@ -20,27 +20,28 @@ export default {
 
 <template>
   <div class="index">
+    <header class="header">
+      <div class="logo-build-sphere-1-parent">
+        <img class="logo-build-sphere-1" alt="" src="../../assets/logo-build-sphere-1.svg">
+
+        <b class="chromacomics">ChromaComics</b>
+        <img class="image-1-icon" loading="lazy" alt="" src="../../assets/image-1@2x.png">
+      </div>
+      <div class="testimonios-container">
+
+      </div>
+      <nav class="monthly-subscription-box">
+        <nav class="loyalty-program-box">
+          <b class="testimonios"><a href="#who">Who are we?</a></b>
+          <b class="testimonios"><a href="#testimonios">Testimonials</a></b>
+          <b class="contact-us" id="contactUsText"><a href="#contact-us">contact us</a></b>
+          <b class="nuestros-planes"><a href="#nuestros-planes">Our Plans</a></b>
+          <button class="component-2" @click="navigateToLogin">Sing In</button>
+        </nav>
+      </nav>
+    </header>
       <section class="header-parent">
-          <header class="header">
-                  <div class="logo-build-sphere-1-parent">
-                    <img class="logo-build-sphere-1" alt="" src="../../assets/logo-build-sphere-1.svg">
 
-                    <b class="chromacomics">ChromaComics</b>
-                    <img class="image-1-icon" loading="lazy" alt="" src="../../assets/image-1@2x.png">
-                  </div>
-                  <div class="testimonios-container">
-
-                  </div>
-                  <nav class="monthly-subscription-box">
-                    <nav class="loyalty-program-box">
-                      <b class="testimonios"><a href="#who">Who are we?</a></b>
-                      <b class="testimonios"><a href="#testimonios">Testimonials</a></b>
-                      <b class="contact-us" id="contactUsText"><a href="#contact-us">contact us</a></b>
-                      <b class="nuestros-planes"><a href="#nuestros-planes">Our Plans</a></b>
-                      <button class="component-2" @click="navigateToLogin">Sing In</button>
-                    </nav>
-                  </nav>
-                </header>
                   <div class="introduction-wrapper">
                   <div class="introduction">
                     <div class="service-description-container">
@@ -141,62 +142,63 @@ export default {
                     </div>
                   </div>
                 </div>
-                  <div class="dropdown-icon" id="testimonios">
-                  <div class="proyects" data-scroll-to="proyectsContainer">
-                    <div class="testimonios-wrapper">
-                      <h3 class="testimonios1" >Testimonials</h3>
-                    </div>
-                    <div class="frame-container">
-                      <div class="frame-div">
-                        <div class="buildsphere-wrapper">
-                          <div class="buildsphere">BuildSphere</div>
-                        </div>
-                        <div class="enim-sed-faucibus">
-                          Enim sed faucibus turpis in eu mi bibendum neque egestas.
-                          Volutpat commodo sed egestas egestas fringilla phasellus
-                          faucibus scelerisque eleifend. Rhoncus urna neque viverra
-                          justo nec. Adipiscing bibendum est ultricies integer quis
-                          auctor elit sed.
-                        </div>
-                      </div>
-                      <div class="projects-list"></div>
-                    </div>
-                    <div class="proyects-inner">
-                      <div class="frame-parent1">
-                        <div class="frame-parent2">
-                          <div class="mode-apps-wrapper">
-                            <div class="mode-apps">Mode apps</div>
-                          </div>
-                          <div class="lectus-urna-duis" >
-                            Lectus urna duis convallis convallis tellus id interdum.
-                            Adipiscing tristique risus nec feugiat. Enim sed faucibus
-                            turpis in eu mi bibendum neque egestas. Volutpat commodo sed
-                            egestas egestas fringilla phasellus faucibus scelerisque
-                            eleifend.
-                          </div>
-                        </div>
-                        <div class="rectangle-div"></div>
-                      </div>
-                    </div>
-                    <div class="proyects-child">
-                      <div class="frame-parent3">
-                        <div class="frame-parent4">
-                          <div class="scraps-mode-wrapper">
-                            <div class="scraps-mode">SCRAPS MODE</div>
-                          </div>
-                          <div class="sit-amet-mauris">
-                            Sit amet mauris commodo quis. Mollis aliquam ut porttitor
-                            leo a diam sollicitudin tempor. Pharetra diam sit amet nisl
-                            suscipit adipiscing. Ullamcorper dignissim cras tincidunt
-                            lobortis feugiat.
-                          </div>
-                        </div>
-                        <div class="frame-child1"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+
+
       </section>
+    <div class="proyects" id="testimonios" data-scroll-to="proyectsContainer">
+      <div class="testimonios-wrapper">
+        <h3 class="testimonios1" >Testimonials</h3>
+      </div>
+      <div class="frame-container">
+        <div class="frame-div">
+          <div class="buildsphere-wrapper">
+            <div class="buildsphere">BuildSphere</div>
+          </div>
+          <div class="enim-sed-faucibus">
+            Enim sed faucibus turpis in eu mi bibendum neque egestas.
+            Volutpat commodo sed egestas egestas fringilla phasellus
+            faucibus scelerisque eleifend. Rhoncus urna neque viverra
+            justo nec. Adipiscing bibendum est ultricies integer quis
+            auctor elit sed.
+          </div>
+        </div>
+        <div class="projects-list"></div>
+      </div>
+      <div class="proyects-inner">
+        <div class="frame-parent1">
+          <div class="frame-parent2">
+            <div class="mode-apps-wrapper">
+              <div class="mode-apps">Mode apps</div>
+            </div>
+            <div class="lectus-urna-duis" >
+              Lectus urna duis convallis convallis tellus id interdum.
+              Adipiscing tristique risus nec feugiat. Enim sed faucibus
+              turpis in eu mi bibendum neque egestas. Volutpat commodo sed
+              egestas egestas fringilla phasellus faucibus scelerisque
+              eleifend.
+            </div>
+          </div>
+          <div class="rectangle-div"></div>
+        </div>
+      </div>
+      <div class="proyects-child">
+        <div class="frame-parent3">
+          <div class="frame-parent4">
+            <div class="scraps-mode-wrapper">
+              <div class="scraps-mode">SCRAPS MODE</div>
+            </div>
+            <div class="sit-amet-mauris">
+              Sit amet mauris commodo quis. Mollis aliquam ut porttitor
+              leo a diam sollicitudin tempor. Pharetra diam sit amet nisl
+              suscipit adipiscing. Ullamcorper dignissim cras tincidunt
+              lobortis feugiat.
+            </div>
+          </div>
+          <div class="frame-child1"></div>
+        </div>
+      </div>
+    </div>
       <section class="contact-parent">
             <div class="contact" data-scroll-to="contactContainer">
               <div class="contact-label">
@@ -418,7 +420,7 @@ export default {
   text-decoration: none;
 }
 .testimonios-container {
-  width: 273.5px;
+  width: 273px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -469,23 +471,31 @@ export default {
   max-width: 100%;
 }
 .header {
-  margin-right: -10px;
-  margin-bottom: 33.799999999999955px;
+
+  margin-bottom: 33px;
   width: 1452px;
   border-radius: 10px;
   background-color: var(--color-forestgreen);
   flex-direction: row;
   padding: var(--padding-8xs) 7px;
-  gap: 58.5px;
+  gap: 58px;
   top: 0;
   z-index: 99;
   position: sticky;
-  max-width: 101%;
-  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  box-sizing: border-box;
+
+  max-width: 100%;
   text-align: left;
+
+  flex-shrink: 0;
+
   font-size: var(--font-size-5xl);
   color: #192829;
-  font-family: var(--font-roboto);
+  font-family: var(--font-roboto),sans-serif;
 }
 .infomartion-text {
   align-self: stretch;
@@ -562,7 +572,7 @@ export default {
 .saber-mas {
   position: relative;
   font-size: var(--font-size-sm);
-  font-family: var(--font-roboto);
+  font-family: var(--font-roboto),sans-serif;
   color: var(--color-whitesmoke-100);
   text-align: left;
   display: inline-block;
@@ -588,7 +598,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  max-width: 100%;
+
 }
 .comment-box-component {
   flex: 1;
@@ -611,7 +621,7 @@ export default {
   align-self: stretch;
   align-items: flex-end;
   gap: 118px;
-  max-width: 100%;
+
 }
 .service-description-container {
   width: 458px;
@@ -623,19 +633,19 @@ export default {
   flex-shrink: 0;
 }
 .image-2-icon {
-  height: 695.7px;
-  width: 572.5px;
+  height: 695px;
+  width: 572px;
   position: relative;
   object-fit: cover;
   mix-blend-mode: normal;
-  max-width: calc(100% - 491px);
+
 }
 .introduction,
 .introduction-wrapper {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
-  max-width: 100%;
+
 }
 .introduction {
   height: 652px;
@@ -645,7 +655,7 @@ export default {
   align-items: flex-end;
   justify-content: flex-start;
   padding: 285px var(--padding-7xl) 10.6px;
-  gap: 33.5px;
+  gap: 33px;
 }
 .introduction-wrapper {
   align-self: stretch;
@@ -686,15 +696,15 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
   min-width: 483px;
-  max-width: 100%;
+
 }
 .image-4-icon {
   align-self: stretch;
   flex: 1;
   position: relative;
-  max-width: 100%;
+
   overflow: hidden;
-  max-height: 100%;
+
   object-fit: contain;
 }
 .about,
@@ -767,7 +777,7 @@ export default {
 .amplia-seleccin-de {
   width: 323px;
   position: relative;
-  line-height: 29.6px;
+  line-height: 29px;
   font-weight: 600;
   display: inline-block;
   z-index: 1;
@@ -779,7 +789,7 @@ export default {
   justify-content: flex-start;
   padding: 0 8px;
   box-sizing: border-box;
-  max-width: 100%;
+
 }
 .nuestro-catlogo-abarca {
   align-self: stretch;
@@ -794,7 +804,7 @@ export default {
 .rectangle-parent {
   border-radius: var(--br-mini);
   background-color: var(--color-forestgreen);
-  max-width: 100%;
+
 }
 .rectangle-parent {
   display: flex;
@@ -815,7 +825,7 @@ export default {
 .enfoque-acadmico {
   width: 224px;
   position: relative;
-  line-height: 29.6px;
+  line-height: 29px;
   font-weight: 600;
   display: inline-block;
   z-index: 1;
@@ -827,7 +837,7 @@ export default {
   justify-content: flex-end;
   padding: 0 var(--padding-33xl);
   box-sizing: border-box;
-  max-width: 100%;
+
 }
 .ms-all-de {
   align-self: stretch;
@@ -1089,6 +1099,7 @@ export default {
   gap: 190px;
   max-width: 101%;
   flex-shrink: 0;
+  color: black;
 }
 .dropdown-icon,
 .header-parent {
@@ -1641,7 +1652,7 @@ export default {
 }
 .frame-child5 {
   height: 50px;
-  width: 174.3px;
+  width: 174px;
   border-radius: var(--br-mini);
   background-color: var(--color-gold);
 }
@@ -1649,7 +1660,7 @@ export default {
   position: relative;
   font-size: var(--font-size-xl);
   display: inline-block;
-  font-family: var(--font-roboto);
+  font-family: var(--font-roboto),sans-serif;
   color: var(--color-black);
   text-align: left;
   min-width: 110px;
@@ -1671,7 +1682,7 @@ export default {
   z-index: 2;
 }
 .frame-wrapper {
-  width: 1015.7px;
+  width: 1015px;
   justify-content: center;
   padding: 0 var(--padding-xl);
   box-sizing: border-box;
@@ -1681,7 +1692,7 @@ export default {
   width: 1070px;
   flex-direction: column;
   align-items: flex-end;
-  gap: 9.5px;
+  gap: 9px;
   max-width: 100%;
   font-size: var(--font-size-5xl);
   color: var(--color-gray-100);
@@ -1698,9 +1709,9 @@ export default {
   background-color: var(--color-forestgreen);
   flex-direction: column;
   align-items: center;
-  padding: 55.8px var(--padding-xl) 80px;
+  padding: 55px var(--padding-xl) 80px;
   box-sizing: border-box;
-  gap: 66.7px;
+  gap: 66px;
   max-width: 100%;
   flex-shrink: 0;
 }
@@ -1728,7 +1739,7 @@ export default {
   text-align: left;
   font-size: var(--font-size-17xl);
   color: var(--color-gray-100);
-  font-family: var(--font-roboto);
+  font-family: var(--font-roboto),sans-serif;
 }
 .imagen-4-icon {
   width: 216.5px;
@@ -1804,7 +1815,7 @@ export default {
   margin-left: -3px;
   align-self: stretch;
   background-color: var(--color-gold);
-  padding: 54.9px var(--padding-sm);
+  padding: 54px var(--padding-sm);
   gap: 8px;
   text-align: left;
   font-size: var(--font-size-xl);
