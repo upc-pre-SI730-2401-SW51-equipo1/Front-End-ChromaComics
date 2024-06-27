@@ -3,7 +3,7 @@ import Home from '../public/pages/LadingPage.vue'
 import Gallery from '../comics/pages/list-comics.vue'
 import Login from "../Login/components/Login/Login.vue";
 import CreateAccount from "../Login/components/create-account/CreateAccount.vue";
-import recomendationContentComponent from "../recommendations/component/recomendation-content.component.vue";
+import recomendationContentComponent from "../recommendations/pages/recomendation.vue";
 import ShoppingcartContent from "../shopping-cart/component/shoppingcart-content.component.vue";
 import PaymentOfline from "../payment/pages/CheckoutOfline.vue";
 import PaymentOnline from "../payment/pages/CheckoutOnline.vue";
